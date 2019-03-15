@@ -2,12 +2,12 @@ import styled from '@emotion/styled'
 import { useDebounce } from '@iteam/hooks'
 import { RouteComponentProps } from '@reach/router'
 import * as React from 'react'
-import { useSearch } from './api'
-import iconSearch from './images/i_search.svg'
-import MovieResult from './MovieResult'
-import { Grid, GridColumn } from './Grid'
-import { SearchContext } from './SearchContext'
-import { LoadingBlock } from './LoadingBlock'
+import { useSearch } from '../api'
+import { Grid, GridColumn } from '../components/Grid'
+import { LoadingBlock } from '../components/LoadingBlock'
+import MovieResult from '../components/MovieResult'
+import { SearchContext } from '../context/SearchContext'
+import iconSearch from '../images/i_search.svg'
 
 interface SearchInputProps {
   hasQuery: boolean

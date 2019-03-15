@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { RouteComponentProps, Link } from '@reach/router'
-import { useMovie } from './api'
-import { Grid, GridColumn } from './Grid'
-import { H1, Paragraph } from './Typography'
-import styled from '@emotion/styled'
-import { Poster } from './MovieResult'
-import { LoadingBlock } from './LoadingBlock'
+import styled from '@emotion/styled';
+import { Link, RouteComponentProps } from '@reach/router';
+import * as React from 'react';
+import { useMovie } from '../api';
+import { Grid, GridColumn } from '../components/Grid';
+import { LoadingBlock } from '../components/LoadingBlock';
+import { Poster } from '../components/MovieResult';
+import { H1, Paragraph } from '../components/Typography';
 
 interface BackdropProps {
   src: string
