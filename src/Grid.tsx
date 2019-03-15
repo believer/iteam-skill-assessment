@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 import tag from 'clean-tag'
 import {
+  borderRadius,
+  BorderRadiusProps,
+  color,
+  ColorProps,
   display,
   DisplayProps,
   gridColumnGap,
@@ -33,6 +37,12 @@ Grid.defaultProps = {
   gridTemplateColumns: ['20px 1fr 20px', '1fr 960px 1fr'],
 }
 
-export const GridColumn = styled.div`
+type GridColumnProps = SpaceProps & ColorProps & BorderRadiusProps
+
+export const GridColumn = styled(tag.div)<GridColumnProps>`
+  ${borderRadius}
+  ${color}
+  ${space}
+
   grid-column: 2;
 `

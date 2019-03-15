@@ -40,10 +40,18 @@ const Name = styled.div`
   font-weight: 700;
 `
 
-const Role = styled.div`
+const Small = styled.div`
   color: hsl(210, 12%, 60%);
   font-size: 12px;
   margin-top: 5px;
+`
+
+const Meta = styled.div`
+  display: flex;
+
+  > *:not(:last-child) {
+    margin-right: 20px;
+  }
 `
 
 const BackLink = styled(Link)`
@@ -51,6 +59,10 @@ const BackLink = styled(Link)`
   display: block;
   margin-bottom: 30px;
   margin-top: 30px;
+
+  @media (min-width: 52em) {
+    margin-top: 0;
+  }
 `
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
@@ -63,7 +75,7 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   return (
     <Grid mb={100}>
       {movie.backdrop && <Backdrop src={movie.backdrop} />}
-      <GridColumn>
+      <GridColumn bg="#fff" borderRadius="10px" p={[0, 40]} mt={[0, -200]}>
         <BackLink to="/">Back to search</BackLink>
         <Grid mt={40} gridTemplateColumns={['1fr', '200px 1fr']}>
           <div>
@@ -71,6 +83,10 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
           </div>
           <div>
             <H1>{movie.title}</H1>
+            <Meta>
+              <Small>{movie.release_date}</Small>
+              <Small>{movie.tagline}</Small>
+            </Meta>
             <Paragraph mb="30px">{movie.overview}</Paragraph>
             <Grid
               gridRowGap="10px"
@@ -89,7 +105,7 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
                   {actor.image && <Avatar src={actor.image} alt="" />}
                   <div>
                     <Name>{actor.name}</Name>
-                    <Role>{actor.character}</Role>
+                    <Small>{actor.character}</Small>
                   </div>
                 </Actor>
               ))}
