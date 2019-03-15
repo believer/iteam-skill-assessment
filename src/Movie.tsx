@@ -70,6 +70,10 @@ const ActorName = styled.div`
   flex: 1;
 `
 
+const PosterWrap = styled.div`
+  justify-self: center;
+`
+
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   const { movie } = useMovie(id)
 
@@ -83,9 +87,9 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
       <GridColumn bg="#fff" borderRadius="10px" p={[0, 40]} mt={[0, -200]}>
         <BackLink to="/">Back to search</BackLink>
         <Grid mt={40} gridTemplateColumns={['1fr', '200px 1fr']}>
-          <div>
+          <PosterWrap>
             <Poster src={movie.poster} alt={movie.title} />
-          </div>
+          </PosterWrap>
           <div>
             <H1>{movie.title}</H1>
             <Meta>
