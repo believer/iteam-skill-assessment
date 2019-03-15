@@ -14,6 +14,7 @@ interface BackdropProps {
 const Backdrop = styled.div<BackdropProps>`
   background-image: url(${({ src }) => src});
   background-size: cover;
+  background-position: center center;
   height: 300px;
   grid-column: -1/1;
 
@@ -66,7 +67,7 @@ const BackLink = styled(Link)`
 `
 
 const ActorName = styled.div`
- flex: 1; 
+  flex: 1;
 `
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
