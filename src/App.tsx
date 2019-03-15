@@ -1,7 +1,6 @@
 import { css, Global } from '@emotion/core'
 import { Router } from '@reach/router'
 import * as React from 'react'
-import Movie from './pages/Movie'
 import Search from './pages/Search'
 import { SearchProvider } from './context/SearchContext'
 
@@ -32,14 +31,18 @@ const styles = css`
   }
 `
 
+const MovieRoute = React.lazy(() => import('./pages/Movie'))
+
 const App = () => {
   return (
     <SearchProvider>
-      <Global styles={styles} />
-      <Router>
-        <Search path="/" />
-        <Movie path="/movie/:id" />
-      </Router>
+      <React.Suspense fallback="">
+        <Global styles={styles} />
+        <Router>
+          <Search path="/" />
+          <MovieRoute path="/movie/:id" />
+        </Router>
+      </React.Suspense>
     </SearchProvider>
   )
 }
