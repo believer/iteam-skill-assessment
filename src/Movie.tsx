@@ -65,6 +65,10 @@ const BackLink = styled(Link)`
   }
 `
 
+const ActorName = styled.div`
+ flex: 1; 
+`
+
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   const { movie } = useMovie(id)
 
@@ -103,10 +107,10 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
                     />
                   )}
                   {actor.image && <Avatar src={actor.image} alt="" />}
-                  <div>
+                  <ActorName>
                     <Name>{actor.name}</Name>
                     <Small>{actor.character}</Small>
-                  </div>
+                  </ActorName>
                 </Actor>
               ))}
             </Grid>
