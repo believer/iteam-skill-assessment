@@ -7,6 +7,21 @@ jest.mock('../api', () => ({
   useMovie: jest.fn(),
 }))
 
+test('renders empty movie', () => {
+  ;(useMovie as jest.Mock).mockReturnValue({
+    movie: {},
+    isLoading: false,
+    error: null,
+  })
+
+  const { queryByText } = render(<Movie id="1" />)
+
+  expect(useMovie).toHaveBeenCalledWith('1')
+
+  // Tests movie title
+  expect(queryByText(/batman/i)).not.toBeInTheDocument()
+})
+
 test('renders movie information', () => {
   ;(useMovie as jest.Mock).mockReturnValue({
     movie: {
