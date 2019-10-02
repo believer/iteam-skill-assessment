@@ -1,6 +1,4 @@
-This is a test of Iteam's skill assessment for frontend. A website that takes
-fetches search and movie information from TMDb. The assignment should take about
-four hours, I created this app in three hours.
+This is a test of Iteam's skill assessment for frontend. A website that handles searching and fetching movie information from TMDb. The assignment should take about four hours, I created this app in three hours.
 
 [https://movee.willcodefor.beer/](https://movee.willcodefor.beer/)
 
