@@ -1,6 +1,6 @@
 # OMDb API
 
-![Release](https://github.com/believer/omdb-app/workflows/Release/badge.svg)
+[![](https://github.com/believer/omdb-app/workflows/Release/badge.svg)](https://github.com/believer/omdb-app/actions?workflow=Release)
 
 This is a test of the [OMDb API](http://www.omdbapi.com/)
 
