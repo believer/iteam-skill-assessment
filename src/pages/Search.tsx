@@ -71,7 +71,8 @@ const Search: React.FC<RouteComponentProps> = () => {
   const debouncedValue = useDebounce(query, 300)
   const { movies, isLoading } = useSearch(debouncedValue)
 
-  const handleChange = e => setQuery(e.currentTarget.value)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setQuery(e.currentTarget.value)
 
   return (
     <Grid mb={[40, 100]}>
@@ -97,7 +98,7 @@ const Search: React.FC<RouteComponentProps> = () => {
             ))}
 
           {movies.map(movie => (
-            <MovieResult key={movie.id} movie={movie} />
+            <MovieResult key={movie.imdbID} movie={movie} />
           ))}
         </Results>
       </GridColumn>

@@ -1,17 +1,15 @@
 import * as React from 'react'
 import Search from '../Search'
-import { render, fireEvent, act, wait } from 'react-testing-library'
-import { useSearch } from '../api'
-import { SearchProvider } from '../SearchContext'
+import { render, fireEvent, act, wait } from '@testing-library/react'
+import { useSearch } from '../../api'
+import { SearchProvider } from '../../context/SearchContext'
 
-jest.mock('../api', () => ({
-  useSearch: jest.fn(),
-}))
+jest.mock('../../api')
 
 test('renders and displays search results', async () => {
   jest.useFakeTimers()
   ;(useSearch as jest.Mock).mockReturnValue({
-    movies: [{ id: 1, title: 'Batman' }],
+    movies: [{ imdbID: 1, Title: 'Batman' }],
     isLoading: false,
     error: null,
   })

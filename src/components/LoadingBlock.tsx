@@ -1,10 +1,8 @@
 import styled from '@emotion/styled'
-import tag from 'clean-tag'
 import {
   borderRadius,
   BorderRadiusProps,
   color,
-  ColorProps,
   height,
   HeightProps,
   space,
@@ -13,19 +11,20 @@ import {
   WidthProps,
 } from 'styled-system'
 
-type LoadingBlockProps = HeightProps &
-  WidthProps &
-  ColorProps &
-  SpaceProps &
-  BorderRadiusProps
+type LoadingBlockProps =
+  | HeightProps
+  | WidthProps
+  | SpaceProps
+  | BorderRadiusProps
+  | { color?: string; bg?: string }
 
-export const LoadingBlock = styled(tag.div)<LoadingBlockProps>`
-  ${borderRadius}
-  ${color}
-  ${height}
-  ${space}
-  ${width}
-`
+export const LoadingBlock = styled.div<LoadingBlockProps>(
+  borderRadius,
+  color,
+  height,
+  space,
+  width
+)
 
 LoadingBlock.defaultProps = {
   bg: 'hsl(210, 12%, 90%)',

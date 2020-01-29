@@ -2,9 +2,10 @@ import styled from '@emotion/styled'
 import { Link } from '@reach/router'
 import * as React from 'react'
 import { LoadingBlock } from './LoadingBlock'
+import { SearchMovie } from '../types'
 
 interface MovieResultProps {
-  movie: any
+  movie: SearchMovie
 }
 
 const Wrap = styled.div`
@@ -32,10 +33,10 @@ const Title = styled.div`
 const MovieResult: React.FC<MovieResultProps> = ({ movie }) => {
   return (
     <Wrap>
-      <Link to={`/movie/${movie.id}`}>
-        {!movie.poster && <LoadingBlock height="315px" />}
-        {movie.poster && <Poster src={movie.poster} />}
-        <Title>{movie.title}</Title>
+      <Link to={`/movie/${movie.imdbID}`}>
+        {!movie.Poster && <LoadingBlock height="315px" />}
+        {movie.Poster && <Poster src={movie.Poster} />}
+        <Title>{movie.Title}</Title>
       </Link>
     </Wrap>
   )

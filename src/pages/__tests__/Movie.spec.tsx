@@ -1,15 +1,14 @@
 import * as React from 'react'
 import Movie from '../Movie'
-import { render } from 'react-testing-library'
-import { useMovie } from '../api'
+import { render } from '@testing-library/react'
+import { useMovie } from '../../api'
+import { movieBuilder } from '../../__fixtures__/movie-data'
 
-jest.mock('../api', () => ({
-  useMovie: jest.fn(),
-}))
+jest.mock('../../api')
 
 test('renders empty movie', () => {
   ;(useMovie as jest.Mock).mockReturnValue({
-    movie: {},
+    movie: null,
     isLoading: false,
     error: null,
   })
@@ -23,18 +22,9 @@ test('renders empty movie', () => {
 })
 
 test('renders movie information', () => {
+  const movie = movieBuilder()
   ;(useMovie as jest.Mock).mockReturnValue({
-    movie: {
-      cast: [
-        {
-          id: 1,
-          name: 'Christian Bale',
-          character: 'Bruce Wayne',
-        },
-      ],
-      crew: [],
-      title: 'Batman',
-    },
+    movie,
     isLoading: false,
     error: null,
   })
@@ -44,9 +34,8 @@ test('renders movie information', () => {
   expect(useMovie).toHaveBeenCalledWith('1')
 
   // Tests movie title
-  expect(getByText(/batman/i)).toBeInTheDocument()
+  expect(getByText(movie.Title)).toBeInTheDocument()
 
   // Tests cast
-  expect(getByText(/christian bale/i)).toBeInTheDocument()
-  expect(getByText(/bruce wayne/i)).toBeInTheDocument()
+  expect(getByText(movie.Actors.split(', ')[0])).toBeInTheDocument()
 })
