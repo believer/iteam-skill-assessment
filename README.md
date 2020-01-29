@@ -1,16 +1,20 @@
-This is a test of Iteam's skill assessment for frontend. A website that handles searching and fetching movie information from TMDb. The assignment should take about four hours, I created this app in three hours.
+# OMDb API
+
+[![](https://github.com/believer/omdb-app/workflows/Release/badge.svg)](https://github.com/believer/omdb-app/actions?workflow=Release)
+
+This is a test of the [OMDb API](http://www.omdbapi.com/)
 
 # Get started
 
 Add an `.env.local` with your API key
 
 ```
-REACT_APP_API_KEY=<TMDB-KEY-HERE>
+REACT_APP_OMDB_KEY=<OMDb-KEY-HERE>
 ```
 
 ```bash
-git clone https://github.com/believer/iteam-skill-assessment.git
-cd iteam-skill-assessment
+git clone https://github.com/believer/omdb-app.git
+cd omdb-app
 npm install
 npm start
 ```
