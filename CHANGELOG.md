@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/believer/omdb-app/compare/v1.0.2...v1.1.0) (2020-01-30)
+
+
+### Bug Fixes
+
+* purge css of unused styles ([bf0c723](https://github.com/believer/omdb-app/commit/bf0c723474428be0733094d9be06a5a7c1e61234))
+
+
+### Features
+
+* add poster transition on hover ([f350553](https://github.com/believer/omdb-app/commit/f350553604fe93c4245befa2471018bb32e8a3fe))
+
 ## [1.0.2](https://github.com/believer/omdb-app/compare/v1.0.1...v1.0.2) (2020-01-30)
 
 
