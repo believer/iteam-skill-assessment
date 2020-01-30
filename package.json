@@ -13,8 +13,7 @@
     "@types/react": "16.9.19",
     "@types/react-dom": "16.9.5",
     "@types/styled-system": "5.1.5",
-    "classnames": "^2.2.6",
-    "clean-tag": "3.1.1",
+    "classnames": "2.2.6",
     "react": "16.12.0",
     "react-dom": "16.12.0",
     "react-fetch-hook": "1.7.1",
@@ -24,7 +23,7 @@
   },
   "scripts": {
     "build:styles": "postcss src/tailwind.css -o src/styles.css",
-    "prebuild": "npm run build:styles",
+    "prebuild": "cross-env NODE_ENV=production npm run build:styles",
     "prestart": "npm run build:styles",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -43,18 +42,19 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.5",
+    "@fullhuman/postcss-purgecss": "2.0.5",
     "@semantic-release/changelog": "5.0.0",
     "@semantic-release/git": "9.0.0",
     "@testing-library/jest-dom": "5.0.2",
     "@testing-library/react": "9.4.0",
-    "@types/classnames": "^2.2.9",
+    "@types/classnames": "2.2.9",
     "@types/faker": "4.1.9",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "9.7.4",
+    "cross-env": "7.0.0",
     "is-ci-cli": "2.0.0",
-    "postcss-cli": "^7.1.0",
+    "postcss-cli": "7.1.0",
     "prettier": "1.19.1",
-    "tailwindcss": "^1.1.4",
+    "tailwindcss": "1.1.4",
     "test-data-bot": "0.8.0"
   }
 }
