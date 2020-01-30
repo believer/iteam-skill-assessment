@@ -33,7 +33,7 @@ export const Grid = styled.div<GridProps>(
 Grid.defaultProps = {
   display: 'grid',
   gridColumnGap: ['0', '40px'],
-  gridTemplateColumns: ['20px 1fr 20px', '1fr 960px 1fr'],
+  gridTemplateColumns: ['20px 1fr 20px', '20px 1fr 20px', '1fr 960px 1fr'],
 }
 
 type GridColumnProps = SpaceProps | BorderRadiusProps | { bg?: string }
