@@ -8,7 +8,7 @@ Object {
 }
 `;
 
-exports[`#useMovie search and return data 1`] = `"https:/www.omdbapi.com/?apikey=test_key&i=1"`;
+exports[`#useMovie search and return data 1`] = `"https://www.omdbapi.com/?apikey=test_key&i=1"`;
 
 exports[`#useSearch handles null data 1`] = `
 Object {
@@ -18,4 +18,4 @@ Object {
 }
 `;
 
-exports[`#useSearch search and return data 1`] = `"https:/www.omdbapi.com/?apikey=test_key&s=inception"`;
+exports[`#useSearch search and return data 1`] = `"https://www.omdbapi.com/?apikey=test_key&s=inception"`;
