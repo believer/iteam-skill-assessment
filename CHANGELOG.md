@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/believer/omdb-app/compare/v1.0.1...v1.0.2) (2020-01-30)
+
+
+### Bug Fixes
+
+* api url ([673dafc](https://github.com/believer/omdb-app/commit/673dafcdfee34879200566ed2d19a8402520865a))
+
 ## [1.0.1](https://github.com/believer/omdb-app/compare/v1.0.0...v1.0.1) (2020-01-30)
 
 
