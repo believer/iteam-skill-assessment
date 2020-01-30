@@ -2,7 +2,7 @@
 
 [![](https://github.com/believer/omdb-app/workflows/Release/badge.svg)](https://github.com/believer/omdb-app/actions?workflow=Release)
 
-This is a test of the [OMDb API](http://www.omdbapi.com/). The site is also deployed live at https://omdb.willcodefor.beer/
+This is a test of the [OMDb API](http://www.omdbapi.com/). The app is also deployed live at https://omdb.willcodefor.beer/
 
 ## Get started
 
@@ -23,7 +23,7 @@ This will open a browser window pointing to the development server.
 
 ## Run test
 
-Run tests with Jest
+Run tests with Jest. Runs in watch mode in development and single-run mode in CI.
 
 ```sh
 npm test
