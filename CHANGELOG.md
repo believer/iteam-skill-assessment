@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/believer/omdb-app/compare/v1.0.0...v1.0.1) (2020-01-30)
+
+
+### Bug Fixes
+
+* broken posters and poster size ([88588a7](https://github.com/believer/omdb-app/commit/88588a7d69774a13a9a97a08952bde135710c665))
+
 # 1.0.0 (2020-01-29)
 
 
