@@ -10651,6 +10651,8 @@ body {
   justify-self: center;
 }
 
+/* Grid */
+
 .grid {
   display: grid;
 }
@@ -10692,6 +10694,35 @@ body {
   .grid-template-2 {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* Transitions */
+
+.transition-transform {
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+}
+
+.transition-fast {
+  -webkit-transition-duration: 200ms;
+          transition-duration: 200ms;
+}
+
+.transition-ease-in-out {
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+}
+
+.transform-up-2 {
+  -webkit-transform: translateY(-0.5rem);
+          transform: translateY(-0.5rem);
+}
+
+.hover\:transform-up-2:hover {
+  -webkit-transform: translateY(-0.5rem);
+          transform: translateY(-0.5rem);
 }
 
 @media (min-width: 640px) {

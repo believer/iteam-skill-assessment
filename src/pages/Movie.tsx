@@ -1,9 +1,9 @@
 import { Link, RouteComponentProps } from '@reach/router'
 import * as React from 'react'
 import { useMovie } from '../api'
+import { LoadingBlock } from '../components/LoadingBlock'
 import { Poster } from '../components/MovieResult'
 import { H1, H2, Paragraph } from '../components/Typography'
-import { LoadingBlock } from '../components/LoadingBlock'
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   const { isLoading, movie, error } = useMovie(id)
@@ -49,7 +49,7 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
         </Link>
         <div className="grid grid-gap-12 grid-template-movie">
           <div className="justify-self-center">
-            <Poster src={movie.Poster} alt={movie.Title} />
+            <Poster hover={false} src={movie.Poster} alt={movie.Title} />
           </div>
           <div>
             <H1>{movie.Title}</H1>

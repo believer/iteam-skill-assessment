@@ -1,8 +1,8 @@
-import * as React from 'react'
-import Movie from '../Movie'
 import { render } from '@testing-library/react'
+import * as React from 'react'
 import { useMovie } from '../../api'
 import { movieBuilder } from '../../__fixtures__/movie-data'
+import Movie from '../Movie'
 
 jest.mock('../../api')
 

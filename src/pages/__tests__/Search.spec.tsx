@@ -1,8 +1,8 @@
+import { act, fireEvent, render, wait } from '@testing-library/react'
 import * as React from 'react'
-import Search from '../Search'
-import { render, fireEvent, act, wait } from '@testing-library/react'
 import { useSearch } from '../../api'
 import { SearchProvider } from '../../context/SearchContext'
+import Search from '../Search'
 
 jest.mock('../../api')
 

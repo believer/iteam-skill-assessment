@@ -25,6 +25,7 @@ body {
   justify-self: center;
 }
 
+/* Grid */
 .grid {
   display: grid;
 }
@@ -65,5 +66,25 @@ body {
 
   .grid-template-2 {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Transitions */
+
+.transition-transform {
+  transition-property: transform;
+}
+
+.transition-fast {
+  transition-duration: 200ms;
+}
+
+.transition-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+@variants hover {
+  .transform-up-2 {
+    transform: translateY(-0.5rem);
   }
 }
