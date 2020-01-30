@@ -2,5 +2,10 @@
   "name": "OMDb",
   "version": 2,
   "alias": ["omdb.willcodefor.beer"],
-  "regions": ["arn"]
+  "regions": ["arn"],
+  "build": {
+    "env": {
+      "REACT_APP_OMDB_KEY": "@omdb_app_key"
+    }
+  }
 }
