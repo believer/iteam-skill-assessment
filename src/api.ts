@@ -4,7 +4,7 @@ import { MovieResponse, SearchResults } from './types'
 const API_KEY = process.env.REACT_APP_OMDB_KEY
 
 const createRequest = (params: string) =>
-  `https:/www.omdbapi.com/?apikey=${API_KEY}${params}`
+  `https://www.omdbapi.com/?apikey=${API_KEY}${params}`
 
 export const useSearch = (query: string) => {
   const { data, isLoading, error } = useFetch<SearchResults>(
