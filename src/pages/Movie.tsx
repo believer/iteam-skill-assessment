@@ -1,92 +1,118 @@
-import styled from '@emotion/styled'
 import { Link, RouteComponentProps } from '@reach/router'
 import * as React from 'react'
 import { useMovie } from '../api'
-import { Grid, GridColumn } from '../components/Grid'
 import { Poster } from '../components/MovieResult'
-import { H1, Paragraph } from '../components/Typography'
-
-const Actor = styled.div`
-  align-items: center;
-  display: flex;
-  padding: 5px;
-`
-
-const Name = styled.div`
-  font-weight: 700;
-`
-
-const Small = styled.div`
-  color: hsl(210, 12%, 60%);
-  font-size: 12px;
-  margin-top: 5px;
-`
-
-const Meta = styled.div`
-  display: flex;
-
-  > *:not(:last-child) {
-    margin-right: 20px;
-  }
-`
-
-const BackLink = styled(Link)`
-  color: #24292e;
-  display: block;
-  margin-bottom: 30px;
-  margin-top: 30px;
-
-  @media (min-width: 52em) {
-    margin-top: 0;
-  }
-`
-
-const ActorName = styled.div`
-  flex: 1;
-`
-
-const PosterWrap = styled.div`
-  justify-self: center;
-`
+import { H1, H2, Paragraph } from '../components/Typography'
+import { LoadingBlock } from '../components/LoadingBlock'
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
-  const { movie } = useMovie(id)
+  const { isLoading, movie, error } = useMovie(id)
+
+  if (error) {
+    return (
+      <div className="h-screen flex items-center flex-col justify-center">
+        <div className="text-red-600 text-xl mb-2">{error}</div>
+        <Link className="text-gray-700" to="/">
+          Back to search
+        </Link>
+      </div>
+    )
+  }
+
+  if (isLoading) {
+    return (
+      <div className="grid grid-template my-10">
+        <div className="grid-template-center">
+          <div className="grid grid-gap-12 grid-template-movie mt-8">
+            <LoadingBlock width="200px" height="310px" />
+            <div>
+              <LoadingBlock width="200px" height="40px" />
+              <LoadingBlock width="400px" height="20px" mt="10px" />
+              <LoadingBlock width="600px" height="20px" mt="20px" />
+              <LoadingBlock width="600px" height="20px" mt="8px" />
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (!movie) {
     return null
   }
 
   return (
-    <Grid mb={100}>
-      <GridColumn bg="#fff" borderRadius="10px" p={[0, 40]} mt={[0, -200]}>
-        <BackLink to="/">Back to search</BackLink>
-        <Grid mt={40} gridTemplateColumns={['1fr', '200px 1fr']}>
-          <PosterWrap>
+    <div className="grid grid-template my-10">
+      <div className="grid-template-center">
+        <Link className="text-gray-700 block mb-8" to="/">
+          Back to search
+        </Link>
+        <div className="grid grid-gap-12 grid-template-movie">
+          <div className="justify-self-center">
             <Poster src={movie.Poster} alt={movie.Title} />
-          </PosterWrap>
+          </div>
           <div>
             <H1>{movie.Title}</H1>
-            <Meta>
-              <Small>{movie.Released}</Small>
-              <Small>{movie.Genre}</Small>
-            </Meta>
-            <Paragraph mb="30px">{movie.Plot}</Paragraph>
-            <Grid
-              gridRowGap="10px"
-              gridTemplateColumns={['1fr', 'repeat(2, 1fr)']}
-            >
-              {movie.Actors.split(', ').map(actor => (
-                <Actor key={actor}>
-                  <ActorName>
-                    <Name>{actor}</Name>
-                  </ActorName>
-                </Actor>
-              ))}
-            </Grid>
+            <div className="flex mb-4 mt-2">
+              <div className="text-xs text-gray-500 mr-4">{movie.Year}</div>
+              <div className="text-xs text-gray-500 mr-4">{movie.Runtime}</div>
+              <div className="text-xs text-gray-500">{movie.Genre}</div>
+            </div>
+            <Paragraph className="mb-8">{movie.Plot}</Paragraph>
+            <div className="mt-4">
+              <H2>Cast</H2>
+              <div className="mt-4 border-b border-gray-400 pb-8">
+                <div className="grid grid-template-2 grid-gap-2">
+                  {movie.Actors.split(', ').map(actor => (
+                    <span className="font-bold" key={actor}>
+                      {actor}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="mt-8">
+              <table className="w-full">
+                <tbody>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Director</td>
+                    <td className="p-2">{movie.Director}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Writer</td>
+                    <td className="p-2">{movie.Writer}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Released</td>
+                    <td className="p-2">{movie.Released}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Production</td>
+                    <td className="p-2">{movie.Production}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Rating</td>
+                    <td className="p-2">{movie.Rated}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Countries</td>
+                    <td className="p-2">{movie.Country}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Languages</td>
+                    <td className="p-2">{movie.Language}</td>
+                  </tr>
+                  <tr className="even:bg-gray-100">
+                    <td className="font-bold mr-2 align-top p-2">Box office</td>
+                    <td className="p-2">{movie.BoxOffice}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </Grid>
-      </GridColumn>
-    </Grid>
+        </div>
+      </div>
+    </div>
   )
 }
 

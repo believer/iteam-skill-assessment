@@ -3,7 +3,6 @@ import { useDebounce } from '@iteam/hooks'
 import { RouteComponentProps } from '@reach/router'
 import * as React from 'react'
 import { useSearch } from '../api'
-import { Grid, GridColumn } from '../components/Grid'
 import { LoadingBlock } from '../components/LoadingBlock'
 import MovieResult from '../components/MovieResult'
 import { SearchContext } from '../context/SearchContext'
@@ -14,12 +13,7 @@ interface SearchInputProps {
 }
 
 const SearchWrap = styled.div<SearchInputProps>`
-  background-color: hsla(0, 0%, 90%, 0.8);
-  display: flex;
-  justify-content: center;
   left: 0;
-  padding: 20px;
-  position: fixed;
   right: 0;
   transform: translateY(${({ hasQuery }) => (hasQuery ? '0' : '-50%')});
   transition: 200ms ease-in-out;
@@ -32,11 +26,8 @@ const SearchInput = styled.input<SearchInputProps>`
   background-color: transparent;
   background-image: url(${iconSearch});
   background-repeat: no-repeat;
-  background-size: 24px; 24px;
+  background-size: 24px 24px;
   background-position: 0 center;
-  border: 0;
-  border-bottom: 2px solid #009eb5;
-  font-family: 'Fjalla One', sans-serif;
   font-size: 32px;
   padding: 10px;
   padding-left: 40px;
@@ -59,13 +50,6 @@ const Results = styled.div`
     margin-top: 200px;
   }
 `
-
-const Loading = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-`
-
 const Search: React.FC<RouteComponentProps> = () => {
   const { query, setQuery } = React.useContext(SearchContext)
   const debouncedValue = useDebounce(query, 300)
@@ -75,10 +59,14 @@ const Search: React.FC<RouteComponentProps> = () => {
     setQuery(e.currentTarget.value)
 
   return (
-    <Grid mb={[40, 100]}>
-      <SearchWrap hasQuery={query.length > 0}>
+    <div className="grid grid-template">
+      <SearchWrap
+        className="bg-gray-100 fixed flex justify-center p-4"
+        hasQuery={query.length > 0}
+      >
         <SearchInput
           aria-label="Find a movie you love"
+          className="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none"
           hasQuery={query.length > 0}
           onChange={handleChange}
           placeholder="Find a movie you love"
@@ -87,22 +75,30 @@ const Search: React.FC<RouteComponentProps> = () => {
         />
       </SearchWrap>
 
-      <GridColumn>
+      <div className="grid-template-center">
         <Results>
           {isLoading &&
             Array.from(Array(12).keys()).map(i => (
-              <Loading key={i}>
+              <div className="flex items-center flex-col" key={i}>
                 <LoadingBlock height="315px" />
                 <LoadingBlock height="19px" mt="15px" width="80%" />
-              </Loading>
+              </div>
             ))}
 
-          {movies.map(movie => (
-            <MovieResult key={movie.imdbID} movie={movie} />
-          ))}
+          {!!query &&
+            !isLoading &&
+            movies.map(movie => (
+              <MovieResult key={movie.imdbID} movie={movie} />
+            ))}
         </Results>
-      </GridColumn>
-    </Grid>
+
+        {!!debouncedValue && !isLoading && movies.length === 0 && (
+          <div className="text-center text-2xl text-gray-600">
+            No search results, try a different movie!
+          </div>
+        )}
+      </div>
+    </div>
   )
 }
 

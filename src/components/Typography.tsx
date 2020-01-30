@@ -1,18 +1,17 @@
-import styled from '@emotion/styled'
-import { space, SpaceProps } from 'styled-system'
+import React from 'react'
+import classNames from 'classnames'
 
-type H1Props = SpaceProps
+export const H1: React.FC = ({ children }) => {
+  return <h1 className="font-header text-3xl">{children}</h1>
+}
 
-export const H1 = styled.h1<H1Props>(
-  {
-    fontFamily: "'Fjalla One', sans-serif",
-  },
-  space
-)
+export const H2: React.FC = ({ children }) => {
+  return <h2 className="font-header text-xl">{children}</h2>
+}
 
-export const Paragraph = styled.p<SpaceProps>(
-  {
-    lineHeight: 2,
-  },
-  space
-)
+export const Paragraph: React.FC<{ className?: string }> = ({
+  children,
+  className,
+}) => {
+  return <p className={classNames('leading-loose', className)}>{children}</p>
+}

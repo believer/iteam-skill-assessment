@@ -1,5 +1,5 @@
 import useFetch from 'react-fetch-hook'
-import { SearchResults, Movie } from './types'
+import { MovieResponse, SearchResults } from './types'
 
 const API_KEY = process.env.REACT_APP_OMDB_KEY
 
@@ -18,11 +18,11 @@ export const useSearch = (query: string) => {
     return { movies: [], isLoading, error }
   }
 
-  return { movies: data.Search, isLoading, error }
+  return { movies: data.Search || [], isLoading, error }
 }
 
 export const useMovie = (id?: string) => {
-  const { data, isLoading, error } = useFetch<Movie>(
+  const { data, isLoading, error } = useFetch<MovieResponse>(
     createRequest(`&i=${id}`),
     {
       depends: [id],
@@ -31,6 +31,10 @@ export const useMovie = (id?: string) => {
 
   if (!data) {
     return { movie: null, isLoading, error }
+  }
+
+  if (data.Error) {
+    return { movie: null, isLoading, error: data.Error }
   }
 
   return {

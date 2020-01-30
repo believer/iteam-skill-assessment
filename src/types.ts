@@ -47,3 +47,5 @@ export interface Movie {
   imdbRating: string
   imdbVotes: string
 }
+
+export type MovieResponse = Movie & { Error: string }
