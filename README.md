@@ -2,9 +2,16 @@
 
 [![](https://github.com/believer/omdb-app/workflows/Release/badge.svg)](https://github.com/believer/omdb-app/actions?workflow=Release)
 
-This is a test of the [OMDb API](http://www.omdbapi.com/)
+This is a test of the [OMDb API](http://www.omdbapi.com/). The site is also deployed live at https://omdb.willcodefor.beer/
 
-# Get started
+## Get started
+
+```sh
+git clone https://github.com/believer/omdb-app.git
+cd omdb-app
+npm install
+npm start
+```
 
 Add an `.env.local` with your API key
 
@@ -12,17 +19,18 @@ Add an `.env.local` with your API key
 REACT_APP_OMDB_KEY=<OMDb-KEY-HERE>
 ```
 
-```bash
-git clone https://github.com/believer/omdb-app.git
-cd omdb-app
-npm install
-npm start
-```
-
 This will open a browser window pointing to the development server.
 
 ## Run test
 
-```bash
+Run tests with Jest
+
+```sh
 npm test
 ```
+
+## Built with
+
+- Create React App (TypeScript)
+- Tailwind CSS
+- Config setups from [supreme](https://github.com/Iteam1337/supreme) (Prettier, GitHub Actions)
