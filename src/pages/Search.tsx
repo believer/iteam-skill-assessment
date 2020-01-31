@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { useDebounce } from '@iteam/hooks'
 import { RouteComponentProps } from '@reach/router'
-import * as React from 'react'
+import React from 'react'
 import { useSearch } from '../api'
 import { LoadingBlock } from '../components/LoadingBlock'
 import MovieResult from '../components/MovieResult'
@@ -80,8 +80,8 @@ const Search: React.FC<RouteComponentProps> = () => {
           {isLoading &&
             Array.from(Array(12).keys()).map(i => (
               <div className="flex items-center flex-col" key={i}>
-                <LoadingBlock height="315px" />
-                <LoadingBlock height="19px" mt="15px" width="80%" />
+                <LoadingBlock className="h-80" />
+                <LoadingBlock className="h-5 mt-4 w-4/5" />
               </div>
             ))}
 

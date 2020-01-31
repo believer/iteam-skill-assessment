@@ -1,5 +1,5 @@
 import { Link } from '@reach/router'
-import * as React from 'react'
+import React from 'react'
 import { LoadingBlock } from './LoadingBlock'
 import { SearchMovie } from '../types'
 import classNames from 'classnames'
@@ -29,7 +29,7 @@ const MovieResult: React.FC<MovieResultProps> = ({ movie }) => {
   return (
     <div className="rounded">
       <Link to={`/movie/${movie.imdbID}`}>
-        {!hasPoster && <LoadingBlock height="310px" />}
+        {!hasPoster && <LoadingBlock className="h-80 w-full" />}
         {hasPoster && <Poster src={movie.Poster} />}
         <div className="text-center mt-4 font-bold text-gray-800">
           {movie.Title}

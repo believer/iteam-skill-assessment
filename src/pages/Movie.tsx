@@ -1,5 +1,5 @@
 import { Link, RouteComponentProps } from '@reach/router'
-import * as React from 'react'
+import React from 'react'
 import { useMovie } from '../api'
 import { LoadingBlock } from '../components/LoadingBlock'
 import { Poster } from '../components/MovieResult'
@@ -24,12 +24,12 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
       <div className="grid grid-template my-10">
         <div className="grid-template-center">
           <div className="grid grid-gap-12 grid-template-movie mt-8">
-            <LoadingBlock width="200px" height="310px" />
+            <LoadingBlock className="w-full h-80" />
             <div>
-              <LoadingBlock width="200px" height="40px" />
-              <LoadingBlock width="400px" height="20px" mt="10px" />
-              <LoadingBlock width="600px" height="20px" mt="20px" />
-              <LoadingBlock width="600px" height="20px" mt="8px" />
+              <LoadingBlock className="w-2/12 h-8" />
+              <LoadingBlock className="w-6/12 h-5 mt-2" />
+              <LoadingBlock className="w-9/12 h-5 mt-5" />
+              <LoadingBlock className="w-9/12 h-5 mt-2" />
             </div>
           </div>
         </div>

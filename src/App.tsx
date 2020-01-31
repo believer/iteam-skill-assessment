@@ -1,5 +1,5 @@
 import { Router } from '@reach/router'
-import * as React from 'react'
+import React from 'react'
 import Search from './pages/Search'
 import { SearchProvider } from './context/SearchContext'
 
