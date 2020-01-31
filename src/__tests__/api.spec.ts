@@ -19,6 +19,18 @@ describe('#useSearch', () => {
     expect(result).toMatchSnapshot()
   })
 
+  test('handles empty search results', () => {
+    ;(useFetch as jest.Mock).mockReturnValue({
+      data: {},
+      isLoading: false,
+      error: null,
+    })
+
+    const result = useSearch('inception')
+
+    expect(result).toMatchSnapshot()
+  })
+
   test('search and return data', () => {
     const movieOne = searchMovieBuilder()
     const movieTwo = searchMovieBuilder()
@@ -45,6 +57,20 @@ describe('#useMovie', () => {
   test('handles null data', () => {
     ;(useFetch as jest.Mock).mockReturnValue({
       data: null,
+      isLoading: false,
+      error: null,
+    })
+
+    const result = useMovie('1')
+
+    expect(result).toMatchSnapshot()
+  })
+
+  test('handles errors', () => {
+    ;(useFetch as jest.Mock).mockReturnValue({
+      data: {
+        Error: 'Incorrect IMDb ID',
+      },
       isLoading: false,
       error: null,
     })

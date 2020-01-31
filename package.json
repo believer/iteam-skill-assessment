@@ -11,6 +11,7 @@
     "test": "is-ci \"test:ci\" \"test:watch\"",
     "test:ci": "CI=true react-scripts test",
     "test:watch": "react-scripts test",
+    "test:coverage": "CI=true react-scripts test --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -54,5 +55,13 @@
     "prettier": "1.19.1",
     "tailwindcss": "1.1.4",
     "test-data-bot": "0.8.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/src/serviceWorker.ts",
+      "!<rootDir>/src/*.d.ts"
+    ]
   }
 }

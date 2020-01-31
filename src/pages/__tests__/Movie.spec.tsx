@@ -1,10 +1,34 @@
 import { render } from '@testing-library/react'
-import * as React from 'react'
+import React from 'react'
 import { useMovie } from '../../api'
 import { movieBuilder } from '../../__fixtures__/movie-data'
 import Movie from '../Movie'
 
 jest.mock('../../api')
+
+test('renders loading state', () => {
+  ;(useMovie as jest.Mock).mockReturnValue({
+    movie: null,
+    isLoading: true,
+    error: null,
+  })
+
+  const { container } = render(<Movie id="1" />)
+
+  expect(container).toMatchSnapshot()
+})
+
+test('renders error state', () => {
+  ;(useMovie as jest.Mock).mockReturnValue({
+    movie: null,
+    isLoading: false,
+    error: 'Incorrect IMDb ID',
+  })
+
+  const { container } = render(<Movie id="1" />)
+
+  expect(container).toMatchSnapshot()
+})
 
 test('renders empty movie', () => {
   ;(useMovie as jest.Mock).mockReturnValue({

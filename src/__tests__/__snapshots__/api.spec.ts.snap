@@ -1,5 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`#useMovie handles errors 1`] = `
+Object {
+  "error": "Incorrect IMDb ID",
+  "isLoading": false,
+  "movie": null,
+}
+`;
+
 exports[`#useMovie handles null data 1`] = `
 Object {
   "error": null,
@@ -9,6 +17,14 @@ Object {
 `;
 
 exports[`#useMovie search and return data 1`] = `"https://www.omdbapi.com/?apikey=test_key&i=1"`;
+
+exports[`#useSearch handles empty search results 1`] = `
+Object {
+  "error": null,
+  "isLoading": false,
+  "movies": Array [],
+}
+`;
 
 exports[`#useSearch handles null data 1`] = `
 Object {

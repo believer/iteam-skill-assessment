@@ -30,7 +30,7 @@ const MovieResult: React.FC<MovieResultProps> = ({ movie }) => {
     <div className="rounded">
       <Link to={`/movie/${movie.imdbID}`}>
         {!hasPoster && <LoadingBlock className="h-80 w-full" />}
-        {hasPoster && <Poster src={movie.Poster} />}
+        {hasPoster && <Poster alt={movie.Title} src={movie.Poster} />}
         <div className="text-center mt-4 font-bold text-gray-800">
           {movie.Title}
         </div>

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders error state 1`] = `
+<div>
+  <div
+    class="h-screen flex items-center flex-col justify-center"
+  >
+    <div
+      class="text-red-600 text-xl mb-2"
+    >
+      Incorrect IMDb ID
+    </div>
+    <a
+      aria-current="page"
+      class="text-gray-700"
+      href="/"
+    >
+      Back to search
+    </a>
+  </div>
+</div>
+`;
+
+exports[`renders loading state 1`] = `
+<div>
+  <div
+    class="grid grid-template my-10"
+  >
+    <div
+      class="grid-template-center"
+    >
+      <div
+        class="grid grid-gap-12 grid-template-movie mt-8"
+      >
+        <div
+          class="rounded bg-gray-200 w-full h-80"
+        />
+        <div>
+          <div
+            class="rounded bg-gray-200 w-2/12 h-8"
+          />
+          <div
+            class="rounded bg-gray-200 w-6/12 h-5 mt-2"
+          />
+          <div
+            class="rounded bg-gray-200 w-9/12 h-5 mt-5"
+          />
+          <div
+            class="rounded bg-gray-200 w-9/12 h-5 mt-2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

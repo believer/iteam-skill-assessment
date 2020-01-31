@@ -1,0 +1,7 @@
+exclude_patterns:
+  - "src/**/*.spec.ts"
+  - "src/**/*.spec.tsx"
+plugins: 
+  eslint:
+    enabled: true
+    channel: "eslint-4"

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`handles app render 1`] = `
+<div>
+  <div
+    role="group"
+    style="outline: none;"
+    tabindex="-1"
+  >
+    <div
+      class="grid grid-template"
+    >
+      <div
+        class="bg-gray-100 fixed flex justify-center p-4 css-rycti9"
+      >
+        <input
+          aria-label="Find a movie you love"
+          class="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none css-y4ccc"
+          placeholder="Find a movie you love"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="grid-template-center"
+      >
+        <div
+          class="css-1ew1t1i"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
