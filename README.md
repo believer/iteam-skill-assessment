@@ -1,7 +1,7 @@
 # OMDb API
 
 [![](https://github.com/believer/omdb-app/workflows/Release/badge.svg)](https://github.com/believer/omdb-app/actions?workflow=Release)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a0fb65623d81299efac8/test_coverage)](https://codeclimate.com/github/believer/omdb-app/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/b52e155d5b3fd5d44767/test_coverage)](https://codeclimate.com/github/believer/omdb-app/test_coverage)
 
 This is a test of the [OMDb API](http://www.omdbapi.com/). The app is also deployed live at https://omdb.willcodefor.beer/
 
