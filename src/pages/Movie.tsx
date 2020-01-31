@@ -4,6 +4,7 @@ import { useMovie } from '../api'
 import { LoadingBlock } from '../components/LoadingBlock'
 import { Poster } from '../components/MovieResult'
 import { H1, H2, Paragraph } from '../components/Typography'
+import { Table, TableBody, TableRow, TableCell } from '../components/Table'
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   const { isLoading, movie, error } = useMovie(id)
@@ -41,6 +42,41 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
     return null
   }
 
+  const meta = [
+    {
+      title: 'Director',
+      value: movie.Director,
+    },
+    {
+      title: 'Writer',
+      value: movie.Writer,
+    },
+    {
+      title: 'Released',
+      value: movie.Released,
+    },
+    {
+      title: 'Production',
+      value: movie.Production,
+    },
+    {
+      title: 'Rating',
+      value: movie.Rated,
+    },
+    {
+      title: 'Countries',
+      value: movie.Country,
+    },
+    {
+      title: 'Languages',
+      value: movie.Language,
+    },
+    {
+      title: 'Box Office',
+      value: movie.BoxOffice,
+    },
+  ] as const
+
   return (
     <div className="grid grid-template my-10">
       <div className="grid-template-center">
@@ -72,42 +108,18 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
               </div>
             </div>
             <div className="mt-8">
-              <table className="w-full">
-                <tbody>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Director</td>
-                    <td className="p-2">{movie.Director}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Writer</td>
-                    <td className="p-2">{movie.Writer}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Released</td>
-                    <td className="p-2">{movie.Released}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Production</td>
-                    <td className="p-2">{movie.Production}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Rating</td>
-                    <td className="p-2">{movie.Rated}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Countries</td>
-                    <td className="p-2">{movie.Country}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Languages</td>
-                    <td className="p-2">{movie.Language}</td>
-                  </tr>
-                  <tr className="even:bg-gray-100">
-                    <td className="font-bold mr-2 align-top p-2">Box office</td>
-                    <td className="p-2">{movie.BoxOffice}</td>
-                  </tr>
-                </tbody>
-              </table>
+              <Table>
+                <TableBody>
+                  {meta.map(({ title, value }) => (
+                    <TableRow key={title}>
+                      <TableCell className="font-bold mr-2 align-top p-2">
+                        {title}
+                      </TableCell>
+                      <TableCell className="p-2">{value}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>
