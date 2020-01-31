@@ -34,4 +34,4 @@ npm test
 
 - Create React App (TypeScript)
 - Tailwind CSS
-- Config setups from [supreme](https://github.com/Iteam1337/supreme) (Prettier, GitHub Actions)
+- Config setups from [supreme](https://github.com/Iteam1337/supreme) (Prettier, GitHub Actions, Semantic Release)
