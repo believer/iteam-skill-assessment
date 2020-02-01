@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/believer/omdb-app/compare/v1.1.0...v1.1.1) (2020-02-01)
+
+
+### Bug Fixes
+
+* remove empty meta fields ([76b8dbd](https://github.com/believer/omdb-app/commit/76b8dbd14ba6eb8860911d30824d2d0253bfeb51))
+* remove runtime from games ([9639ca8](https://github.com/believer/omdb-app/commit/9639ca8671ebd8644a3d2b57bc509c9e616bb9ee))
+
 # [1.1.0](https://github.com/believer/omdb-app/compare/v1.0.2...v1.1.0) (2020-01-30)
 
 
