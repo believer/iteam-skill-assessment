@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/believer/omdb-app/compare/v1.1.1...v1.1.2) (2020-02-01)
+
+
+### Bug Fixes
+
+* **search:** poster loading ([c067c07](https://github.com/believer/omdb-app/commit/c067c0780d6cb3ceda38d3b6c8e084886574b476))
+
 ## [1.1.1](https://github.com/believer/omdb-app/compare/v1.1.0...v1.1.1) (2020-02-01)
 
 
