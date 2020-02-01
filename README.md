@@ -14,7 +14,7 @@ cd omdb-app
 npm install
 ```
 
-Add an `.env.local` with your API key
+Add a `.env.local` in the root of the project with your API key
 
 ```
 REACT_APP_OMDB_KEY=<OMDb-KEY-HERE>
@@ -22,7 +22,7 @@ REACT_APP_OMDB_KEY=<OMDb-KEY-HERE>
 
 After the steps above have been completed, run `npm start`. This will start the compiler and open a browser window pointing to the development server.
 
-## Run test
+## Run tests
 
 Run tests with Jest. Runs in watch mode in development and single-run mode in CI.
 
