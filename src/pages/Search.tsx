@@ -72,7 +72,7 @@ const Search: React.FC<RouteComponentProps> = () => {
           {isLoading &&
             Array.from(Array(12).keys()).map(i => (
               <div className="flex items-center flex-col" key={i}>
-                <LoadingBlock className="h-80" />
+                <LoadingBlock className="h-80 w-full" />
                 <LoadingBlock className="h-5 mt-4 w-4/5" />
               </div>
             ))}
