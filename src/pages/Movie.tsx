@@ -5,6 +5,7 @@ import { LoadingBlock } from '../components/LoadingBlock'
 import { Poster } from '../components/MovieResult'
 import { H1, H2, Paragraph } from '../components/Typography'
 import { Table, TableBody, TableRow, TableCell } from '../components/Table'
+import { MovieType } from '../types'
 
 const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
   const { isLoading, movie, error } = useMovie(id)
@@ -107,7 +108,11 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
             <H1>{movie.Title}</H1>
             <div className="flex mb-4 mt-2">
               <div className="text-xs text-gray-500 mr-4">{movie.Year}</div>
-              <div className="text-xs text-gray-500 mr-4">{movie.Runtime}</div>
+              {movie.Type !== MovieType.Game && (
+                <div className="text-xs text-gray-500 mr-4">
+                  {movie.Runtime}
+                </div>
+              )}
               <div className="text-xs text-gray-500">{movie.Genre}</div>
             </div>
             <Paragraph className="mb-8">{movie.Plot}</Paragraph>

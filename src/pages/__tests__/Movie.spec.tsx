@@ -3,6 +3,7 @@ import React from 'react'
 import { useMovie } from '../../api'
 import { movieBuilder } from '../../__fixtures__/movie-data'
 import Movie from '../Movie'
+import { MovieType } from '../../types'
 
 jest.mock('../../api')
 
@@ -43,6 +44,21 @@ test('renders empty movie', () => {
 
   // Tests movie title
   expect(queryByText(/batman/i)).not.toBeInTheDocument()
+})
+
+test('no runtime for games', () => {
+  const movie = movieBuilder({ Type: MovieType.Game })
+  ;(useMovie as jest.Mock).mockReturnValue({
+    movie,
+    isLoading: false,
+    error: null,
+  })
+
+  const { queryByText } = render(<Movie id="1" />)
+
+  expect(useMovie).toHaveBeenCalledWith('1')
+
+  expect(queryByText(movie.Runtime)).not.toBeInTheDocument()
 })
 
 test('renders movie information', () => {
