@@ -4,10 +4,8 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - src/*
-      - '*.json'
-      - package-lock.json
+    paths-ignore:
+      - '*.md'
 
 jobs:
   test:
@@ -17,10 +15,9 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
 
-      - name: Run tests and linting
+      - name: Run tests
         run: |
           npm install
-          npm run lint --if-present
           npm test
         env:
           CI: true
@@ -32,14 +29,7 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_REPO_TOKEN }}
         with:
           coverageCommand: npm run test:coverage
-        
-  release:
-    runs-on: ubuntu-latest 
-
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-
+          
       - name: Create release using semantic-release
         run: npx semantic-release
         env:
