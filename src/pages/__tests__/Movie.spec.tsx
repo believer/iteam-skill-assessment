@@ -62,4 +62,7 @@ test('renders movie information', () => {
 
   // Tests cast
   expect(getByText(movie.Actors.split(', ')[0])).toBeInTheDocument()
+
+  // Tests production company
+  expect(getByText(movie.Production)).toBeInTheDocument()
 })

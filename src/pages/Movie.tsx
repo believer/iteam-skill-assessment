@@ -31,6 +31,18 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
               <LoadingBlock className="w-6/12 h-5 mt-2" />
               <LoadingBlock className="w-9/12 h-5 mt-5" />
               <LoadingBlock className="w-9/12 h-5 mt-2" />
+              <div className="grid grid-template-2 grid-gap-2 mt-8">
+                <LoadingBlock className="w-full h-8" />
+                <LoadingBlock className="w-full h-8" />
+                <LoadingBlock className="w-full h-8" />
+                <LoadingBlock className="w-full h-8" />
+              </div>
+              <div className="mt-8">
+                <LoadingBlock className="w-full h-8 mt-2" />
+                <LoadingBlock className="w-full h-8 mt-2" />
+                <LoadingBlock className="w-full h-8 mt-2" />
+                <LoadingBlock className="w-full h-8 mt-2" />
+              </div>
             </div>
           </div>
         </div>
@@ -75,6 +87,10 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
       title: 'Box Office',
       value: movie.BoxOffice,
     },
+    {
+      title: 'Awards',
+      value: movie.Awards,
+    },
   ] as const
 
   return (
@@ -100,9 +116,7 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
               <div className="mt-4 border-b border-gray-400 pb-8">
                 <div className="grid grid-template-2 grid-gap-2">
                   {movie.Actors.split(', ').map(actor => (
-                    <span className="font-bold" key={actor}>
-                      {actor}
-                    </span>
+                    <span key={actor}>{actor}</span>
                   ))}
                 </div>
               </div>
@@ -110,14 +124,16 @@ const Movie: React.FC<RouteComponentProps<{ id: string }>> = ({ id }) => {
             <div className="mt-8">
               <Table>
                 <TableBody>
-                  {meta.map(({ title, value }) => (
-                    <TableRow key={title}>
-                      <TableCell className="font-bold mr-2 align-top p-2">
-                        {title}
-                      </TableCell>
-                      <TableCell className="p-2">{value}</TableCell>
-                    </TableRow>
-                  ))}
+                  {meta
+                    .filter(({ value }) => !!value)
+                    .map(({ title, value }) => (
+                      <TableRow key={title}>
+                        <TableCell className="font-bold mr-2 align-top p-2">
+                          {title}
+                        </TableCell>
+                        <TableCell className="p-2">{value}</TableCell>
+                      </TableRow>
+                    ))}
                 </TableBody>
               </Table>
             </div>
