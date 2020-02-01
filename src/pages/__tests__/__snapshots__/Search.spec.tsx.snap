@@ -6,11 +6,11 @@ exports[`renders loading state 1`] = `
     class="grid grid-template"
   >
     <div
-      class="bg-gray-100 fixed flex justify-center p-4 css-risduc"
+      class="bg-gray-100 fixed flex justify-center p-4 z-10 transition-fast transition-ease-in-out css-1x9gb4u"
     >
       <input
         aria-label="Find a movie you love"
-        class="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none css-y4ccc"
+        class="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none p-3 pl-12 text-3xl bg-transparent bg-no-repeat transition-fast transition-ease-in-out css-ctpkuz"
         placeholder="Find a movie you love"
         type="text"
         value="batman"
@@ -20,7 +20,7 @@ exports[`renders loading state 1`] = `
       class="grid-template-center"
     >
       <div
-        class="css-1ew1t1i"
+        class="grid mt-32 md:mt-48 css-nfkm8s"
       >
         <div
           class="flex items-center flex-col"

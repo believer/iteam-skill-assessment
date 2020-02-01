@@ -16,21 +16,15 @@ const SearchWrap = styled.div<SearchInputProps>`
   left: 0;
   right: 0;
   transform: translateY(${({ hasQuery }) => (hasQuery ? '0' : '-50%')});
-  transition: 200ms ease-in-out;
-  transition-property: transform, top, border-color;
+  transition-property: transform, top;
   top: ${({ hasQuery }) => (hasQuery ? '0' : '50%')};
-  z-index: 1;
 `
 
 const SearchInput = styled.input<SearchInputProps>`
-  background-color: transparent;
   background-image: url(${iconSearch});
-  background-repeat: no-repeat;
   background-size: 24px 24px;
   background-position: 0 center;
-  font-size: 32px;
-  padding: 10px;
-  padding-left: 40px;
+  transition-property: border-color;
   width: 80vw;
 
   @media (min-width: 52em) {
@@ -39,21 +33,19 @@ const SearchInput = styled.input<SearchInputProps>`
 `
 
 const Results = styled.div`
-  display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 140px;
 
   @media (min-width: 52em) {
     grid-gap: 40px;
     grid-template-columns: repeat(4, 1fr);
-    margin-top: 200px;
   }
 `
 const Search: React.FC<RouteComponentProps> = () => {
   const { query, setQuery } = React.useContext(SearchContext)
   const debouncedValue = useDebounce(query, 300)
   const { movies, isLoading } = useSearch(debouncedValue)
+  const hasQuery = query.length > 0
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setQuery(e.currentTarget.value)
@@ -61,13 +53,13 @@ const Search: React.FC<RouteComponentProps> = () => {
   return (
     <div className="grid grid-template">
       <SearchWrap
-        className="bg-gray-100 fixed flex justify-center p-4"
-        hasQuery={query.length > 0}
+        className="bg-gray-100 fixed flex justify-center p-4 z-10 transition-fast transition-ease-in-out"
+        hasQuery={hasQuery}
       >
         <SearchInput
           aria-label="Find a movie you love"
-          className="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none"
-          hasQuery={query.length > 0}
+          className="font-header border-b-2 border-gray-400 focus:border-teal-400 outline-none p-3 pl-12 text-3xl bg-transparent bg-no-repeat transition-fast transition-ease-in-out"
+          hasQuery={hasQuery}
           onChange={handleChange}
           placeholder="Find a movie you love"
           type="text"
@@ -76,7 +68,7 @@ const Search: React.FC<RouteComponentProps> = () => {
       </SearchWrap>
 
       <div className="grid-template-center">
-        <Results>
+        <Results className="grid mt-32 md:mt-48">
           {isLoading &&
             Array.from(Array(12).keys()).map(i => (
               <div className="flex items-center flex-col" key={i}>
