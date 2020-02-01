@@ -12,7 +12,6 @@ This is a test of the [OMDb API](http://www.omdbapi.com/). The app is also deplo
 git clone https://github.com/believer/omdb-app.git
 cd omdb-app
 npm install
-npm start
 ```
 
 Add an `.env.local` with your API key
@@ -21,7 +20,7 @@ Add an `.env.local` with your API key
 REACT_APP_OMDB_KEY=<OMDb-KEY-HERE>
 ```
 
-This will open a browser window pointing to the development server.
+After the steps above have been completed, run `npm start`. This will start the compiler and open a browser window pointing to the development server.
 
 ## Run test
 
